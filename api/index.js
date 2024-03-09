@@ -1,5 +1,6 @@
 const express = require('express');
 const mongoose = require('mongoose');
+const cors = require('cors');
 require('dotenv').config()
 const authRouter = require('./routes/auth.routes.js')
 
@@ -9,6 +10,7 @@ mongoose.connect(process.env.MONGO).then(()=>{
 
 const app = express();
 app.use(express.json());
+app.use(cors());
 
 app.listen(3000,()=>{
     console.log('Server is listening on 3000');
